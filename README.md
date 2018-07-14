@@ -10,3 +10,8 @@
 * Install [Tensorflow](https://www.tensorflow.org)
 * Install [Keras](https://keras.io)
 
+## Starting the tutorial
+
+* Open a terminal in this folder
+* Run `jupyter notebook`
+
