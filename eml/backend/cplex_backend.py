@@ -46,7 +46,7 @@ class CplexBackend(base.Backend):
         return mdl.add_indicator(trigger, cst, val, name=name)
 
     def get_obj(self, mdl):
-        sense = 'min' if mdl.is_minimize() else 'max'
+        sense = 'min' if mdl.is_minimized() else 'max'
         xpr = mdl.get_objective_expr()
         return sense, xpr
 
@@ -139,7 +139,7 @@ class CplexBackend(base.Backend):
     #     # Store objective state
     #     # --------------------------------------------------------------------
     #     original_obj = self._mdl.get_objective_expr()
-    #     original_min = self._mdl.is_minimize()
+    #     original_min = self._mdl.is_minimized()
     #     # --------------------------------------------------------------------
     #     # Compute an upper bound
     #     # --------------------------------------------------------------------
@@ -225,7 +225,7 @@ class CplexBackend(base.Backend):
 def model_to_string(mdl):
     s = ''
     # Print objective
-    if mdl.is_minimize():
+    if mdl.is_minimized():
         s += 'minimize: %s\n' % mdl.get_objective_expr()
     else:
         s += 'maximize: %s\n' % mdl.get_objective_expr()
